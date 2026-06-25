@@ -21,6 +21,8 @@
   html {
     scroll-behavior: smooth;
     font-size: 16px;
+    overflow-x: hidden;
+    max-width: 100%;
   }
 
   body {
@@ -28,6 +30,7 @@
     color: var(--color-text);
     font-family: 'Inter', 'SF Pro Display', system-ui, -apple-system, sans-serif;
     overflow-x: hidden;
+    max-width: 100%;
     cursor: none;
   }
 
