@@ -1,0 +1,193 @@
+---
+const cases = [
+  {
+    id: '001',
+    client: 'Elo · Incubadora de Inovação',
+    title: 'Quando velocidade não basta: a tese que transforma risco em produto.',
+    tagline: 'O sistema evoluiu em velocidade. Não em confiança.',
+    role: 'Tese Estratégica · Processo Seletivo',
+    year: '2025',
+    status: 'Tese Estratégica',
+    color: '#FF6B35',
+    problem: 'O Brasil tem um dos sistemas de pagamento mais rápidos do mundo, com um dos maiores índices de fraude. R$ 29 bilhões em golpes via Pix em um ano. 3,48% de taxa de chargeback, entre as mais altas do planeta. R$ 3 bilhões em tentativas de fraude no e-commerce anualmente.',
+    insight: 'Transações fraudulentas têm ticket médio maior que as legítimas, distorcendo os sistemas de decisão de risco e penalizando clientes reais.',
+    pillars: [
+      {
+        name: 'Elo Presence',
+        type: 'Core Helper',
+        color: '#FF6B35',
+        desc: 'Prova física no e-commerce via Tap on Phone / NFC. Elimina fraude na origem, não na detecção.',
+      },
+      {
+        name: 'Elo Assurance',
+        type: 'Disruptive Adjacent',
+        color: '#0066ff',
+        desc: 'Transforma o risco do Pix em produto monetizável via modelos de compartilhamento de responsabilidade.',
+      },
+      {
+        name: 'Elo Trust ID',
+        type: 'New Avenue',
+        color: '#00ff88',
+        desc: 'Identidade comportamental que melhora decisões de autorização e reduz falsos positivos.',
+      },
+    ],
+    shift: 'Risco deixa de ser custo para se tornar ativo precificado. Receita por taxa transacional, compartilhamento de liability e licenciamento B2B, sem depender do MDR tradicional.',
+    numbers: [
+      { value: 'R$ 29bi', label: 'Golpes via Pix / ano' },
+      { value: '3.48%', label: 'Taxa de chargeback BR' },
+      { value: 'R$ 3bi', label: 'Fraudes no e-commerce / ano' },
+      { value: '3', label: 'Pilares estratégicos' },
+    ],
+    url: 'https://unclic.tech/',
+  },
+  {
+    id: '002',
+    client: 'Banco Cora · Processo Seletivo',
+    title: 'A tese que sobreviveu a 13 categorias de red-team.',
+    tagline: 'Não foi aceita. Foi desmontada e reconstruída até ficar defensável.',
+    role: 'Product Strategy · Processo Seletivo',
+    year: '2025',
+    status: 'Processo Seletivo',
+    color: '#00ff88',
+    problem: 'Apresentar uma tese de produto para o Banco Cora em processo seletivo altamente competitivo, com avaliação técnica rigorosa por bancas especializadas em fintech e produtos financeiros.',
+    insight: 'A diferença entre uma tese boa e uma tese defensável é o nível de contestação que ela sobrevive. A estratégia foi atacar a própria tese em 13 dimensões antes que a banca fizesse isso.',
+    pillars: [
+      {
+        name: 'Discovery',
+        type: 'Estrutura',
+        color: '#00ff88',
+        desc: 'Pesquisa de mercado, entrevistas e análise competitiva para construir a base da tese do zero.',
+      },
+      {
+        name: 'Red-Team',
+        type: '13 Categorias',
+        color: '#0066ff',
+        desc: 'Cada premissa da tese foi atacada em 13 dimensões antes da apresentação para torná-la anti-frágil.',
+      },
+      {
+        name: 'Narrativa',
+        type: 'Execução',
+        color: '#FF6B35',
+        desc: 'Construção da apresentação como argumento progressivo, não como slides de bullet points.',
+      },
+    ],
+    shift: 'O processo revelou que o diferencial real não estava na solução, mas no raciocínio por trás dela. Uma tese que sobrevive ao próprio autor é a única que vale apresentar.',
+    numbers: [
+      { value: '13', label: 'Categorias de red-team' },
+      { value: 'Fintech', label: 'Vertical analisada' },
+      { value: 'B2B', label: 'Foco estratégico' },
+      { value: '2025', label: 'Ano' },
+    ],
+    url: null,
+  },
+];
+---
+
+<section id="cases" class="py-32 relative">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12">
+
+    <!-- Header -->
+    <div class="reveal mb-20">
+      <div class="flex items-center gap-4 mb-6">
+        <span class="text-[#00ff88] text-xs font-mono tracking-[0.4em] uppercase">03.5 / Case Studies</span>
+        <div class="h-px flex-1 max-w-[80px] bg-[#00ff88]/20"></div>
+      </div>
+      <h2 class="text-[clamp(2.5rem,6vw,5rem)] font-black leading-[0.95] tracking-tight text-white">
+        RACIOCÍNIO<br/>
+        <span class="text-white/20">EM </span><span class="gradient-text">ABERTO.</span>
+      </h2>
+      <p class="mt-6 text-base text-white/40 max-w-xl">
+        Teses estratégicas e estudos de processo seletivo. O trabalho antes do trabalho.
+      </p>
+    </div>
+
+    <!-- Cases -->
+    <div class="space-y-12">
+      {cases.map((c) => (
+        <div class="reveal group relative overflow-hidden rounded-3xl border border-white/5 bg-[#0d0d0d] hover:border-white/10 transition-all duration-500">
+
+          <!-- Top gradient accent -->
+          <div class="h-1 w-full" style={`background: linear-gradient(90deg, ${c.color}, ${c.color}40, transparent)`}></div>
+
+          <div class="p-8 lg:p-12">
+
+            <!-- Header row -->
+            <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 mb-10">
+              <div class="space-y-2">
+                <div class="flex items-center gap-3 flex-wrap">
+                  <span class="text-[10px] font-mono text-white/20">{c.id}</span>
+                  <span class="tag text-[10px]" style={`color: ${c.color}; border-color: ${c.color}30; background: ${c.color}08`}>
+                    {c.status}
+                  </span>
+                  <span class="text-[10px] text-white/20 uppercase tracking-widest">{c.year}</span>
+                </div>
+                <div class="text-xs text-white/40 font-medium">{c.client}</div>
+                <h3 class="text-2xl lg:text-3xl font-black text-white leading-tight max-w-2xl">{c.title}</h3>
+                <p class="text-sm italic" style={`color: ${c.color}90`}>"{c.tagline}"</p>
+              </div>
+
+              <div class="shrink-0 flex flex-col items-end gap-2">
+                <span class="text-[10px] text-white/20 uppercase tracking-widest">{c.role}</span>
+                {c.url && (
+                  <a href={c.url} target="_blank" class="flex items-center gap-2 text-xs font-semibold tracking-wider uppercase px-4 py-2 rounded-full border transition-all duration-300 hover:scale-105" style={`color: ${c.color}; border-color: ${c.color}30`} data-hover>
+                    Ver tese
+                    <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5">
+                      <path d="M2 6h8M6 2l4 4-4 4"/>
+                    </svg>
+                  </a>
+                )}
+              </div>
+            </div>
+
+            <!-- Numbers bar -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-10 p-6 rounded-2xl bg-black/30 border border-white/5">
+              {c.numbers.map(n => (
+                <div class="text-center">
+                  <div class="text-2xl lg:text-3xl font-black" style={`color: ${c.color}`}>{n.value}</div>
+                  <div class="text-[10px] text-white/30 mt-1 uppercase tracking-wider">{n.label}</div>
+                </div>
+              ))}
+            </div>
+
+            <!-- Problem + Insight -->
+            <div class="grid lg:grid-cols-2 gap-8 mb-10">
+              <div class="space-y-3">
+                <div class="text-[10px] font-bold uppercase tracking-[0.3em] text-white/20">O Problema</div>
+                <p class="text-sm text-white/50 leading-relaxed">{c.problem}</p>
+              </div>
+              <div class="space-y-3">
+                <div class="text-[10px] font-bold uppercase tracking-[0.3em]" style={`color: ${c.color}80`}>O Insight</div>
+                <p class="text-sm text-white/70 leading-relaxed font-medium">{c.insight}</p>
+              </div>
+            </div>
+
+            <!-- 3 Pillars -->
+            <div class="mb-10">
+              <div class="text-[10px] font-bold uppercase tracking-[0.3em] text-white/20 mb-5">Estrutura de Abordagem</div>
+              <div class="grid lg:grid-cols-3 gap-4">
+                {c.pillars.map((p) => (
+                  <div class="relative p-5 rounded-xl border transition-all duration-300 hover:scale-[1.02]" style={`border-color: ${p.color}25; background: ${p.color}06`}>
+                    <div class="absolute top-3 right-3 text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full" style={`color: ${p.color}; background: ${p.color}15`}>
+                      {p.type}
+                    </div>
+                    <div class="text-lg font-black text-white mb-1 mt-4">{p.name}</div>
+                    <p class="text-xs text-white/40 leading-relaxed">{p.desc}</p>
+                    <div class="absolute bottom-0 left-0 right-0 h-0.5 rounded-b-xl" style={`background: linear-gradient(90deg, ${p.color}60, transparent)`}></div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <!-- Strategic shift -->
+            <div class="p-5 rounded-xl border-l-2 bg-white/[0.02]" style={`border-color: ${c.color}`}>
+              <div class="text-[10px] font-bold uppercase tracking-[0.3em] text-white/20 mb-2">A Virada</div>
+              <p class="text-sm text-white/60 leading-relaxed">{c.shift}</p>
+            </div>
+
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

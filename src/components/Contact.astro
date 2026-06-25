@@ -1,0 +1,88 @@
+---
+---
+<section id="contato" class="py-32 relative">
+  <!-- Background glow -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="hero-orb w-[600px] h-[600px] bg-[#00ff88] opacity-[0.04] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+
+    <!-- Big CTA -->
+    <div class="text-center mb-20">
+      <div class="reveal mb-6">
+        <span class="text-[#00ff88] text-xs font-mono tracking-[0.4em] uppercase">05 / Contato</span>
+      </div>
+      <div class="reveal delay-100">
+        <h2 class="text-[clamp(3rem,10vw,10rem)] font-black leading-[0.85] tracking-tight text-white">
+          VAMOS<br/>
+          <span class="gradient-text">CONSTRUIR</span><br/>
+          <span class="text-white/10">ALGO.</span>
+        </h2>
+      </div>
+      <div class="reveal delay-200 mt-8 max-w-lg mx-auto">
+        <p class="text-base text-white/40 leading-relaxed">
+          Senior PM disponível para oportunidades em Fintech, Payments e Plataformas Digitais. Seja CLT, PJ ou projetos estratégicos.
+        </p>
+      </div>
+    </div>
+
+    <!-- Contact cards -->
+    <div class="grid md:grid-cols-3 gap-6 mb-16" data-stagger>
+      {[
+        {
+          icon: '✉',
+          label: 'Email',
+          value: 'gustavo.henrique16@outlook.com',
+          link: 'mailto:gustavo.henrique16@outlook.com',
+          color: '#00ff88',
+        },
+        {
+          icon: '💼',
+          label: 'LinkedIn',
+          value: 'linkedin.com/in/gustavobordotti',
+          link: 'https://linkedin.com/in/gustavobordotti',
+          color: '#0066ff',
+        },
+        {
+          icon: '📱',
+          label: 'WhatsApp / Telefone',
+          value: '(11) 98650-2540',
+          link: 'https://wa.me/5511986502540',
+          color: '#25D366',
+        },
+      ].map(c => (
+        <a href={c.link} target={c.link.startsWith('http') ? '_blank' : undefined} class="reveal card-hover glow group p-8 bg-[#0d0d0d] border border-white/5 rounded-2xl hover:border-white/10 transition-all duration-500 flex flex-col gap-4" data-hover>
+          <div class="text-3xl">{c.icon}</div>
+          <div>
+            <div class="text-xs text-white/30 uppercase tracking-widest mb-1">{c.label}</div>
+            <div class="text-sm font-medium text-white/70 group-hover:text-white transition-colors break-all">{c.value}</div>
+          </div>
+          <div class="mt-auto flex items-center gap-2" style={`color: ${c.color}`}>
+            <span class="text-xs font-semibold tracking-wider uppercase">Entrar em contato</span>
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M3 7h8M7 3l4 4-4 4"/>
+            </svg>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <!-- Divider -->
+    <div class="section-divider my-16"></div>
+
+    <!-- Footer -->
+    <div class="reveal flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-white/20">
+      <div class="font-bold tracking-[0.3em] uppercase text-[#00ff88]/40">
+        Gustavo Henrique · Senior PM
+      </div>
+      <div class="text-center">
+        Cotia, SP · Brasil · <span class="font-mono">{new Date().getFullYear()}</span>
+      </div>
+      <div class="font-mono">
+        Payments · Fintech · Plataformas Digitais
+      </div>
+    </div>
+
+  </div>
+</section>

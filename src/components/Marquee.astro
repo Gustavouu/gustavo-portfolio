@@ -1,0 +1,18 @@
+---
+---
+<div class="py-8 border-y border-white/5 overflow-hidden bg-[#0a0a0a]">
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      {Array(2).fill(null).map(() => (
+        <div class="flex items-center gap-12 px-6">
+          {['PIX · SPB/SPI', 'Adquirência', 'BaaS · PaaS', 'SoftPOS · Tap on Phone', 'Product Strategy', 'APIs & Integrações', 'OKRs & Métricas', 'A/B Testing', 'Discovery', 'Payment Links', 'CNAB', 'Power BI', 'SQL · PostgreSQL', 'Roadmapping', 'Growth', 'Senior PM'].map(item => (
+            <span class="text-xs font-medium tracking-[0.3em] uppercase text-white/20 whitespace-nowrap flex items-center gap-12">
+              {item}
+              <span class="text-[#00ff88] opacity-40">◆</span>
+            </span>
+          ))}
+        </div>
+      ))}
+    </div>
+  </div>
+</div>

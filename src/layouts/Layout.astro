@@ -1,0 +1,93 @@
+---
+import '../styles/global.css';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+const { title = "Gustavo Henrique — Senior PM | Fintech & Payments", description = "Senior Product Manager especializado em Pagamentos, Fintech e Plataformas Digitais. Arquiteto de sistemas invisíveis." } = Astro.props;
+---
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content={description} />
+  <title>{title}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- Custom cursor -->
+  <div class="cursor-dot" id="cursor-dot"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+
+  <!-- Grid background -->
+  <div class="grid-bg"></div>
+
+  <!-- Content -->
+  <slot />
+
+  <script>
+    // Custom cursor
+    const dot = document.getElementById('cursor-dot');
+    const ring = document.getElementById('cursor-ring');
+    let mouseX = 0, mouseY = 0;
+    let ringX = 0, ringY = 0;
+
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      if (dot) {
+        dot.style.left = mouseX - 4 + 'px';
+        dot.style.top = mouseY - 4 + 'px';
+      }
+    });
+
+    function animateRing() {
+      ringX += (mouseX - ringX - 20) * 0.12;
+      ringY += (mouseY - ringY - 20) * 0.12;
+      if (ring) {
+        ring.style.left = ringX + 'px';
+        ring.style.top = ringY + 'px';
+      }
+      requestAnimationFrame(animateRing);
+    }
+    animateRing();
+
+    document.querySelectorAll('a, button, [data-hover]').forEach(el => {
+      el.addEventListener('mouseenter', () => ring?.classList.add('hovering'));
+      el.addEventListener('mouseleave', () => ring?.classList.remove('hovering'));
+    });
+
+    // Reveal on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
+
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
+
+    // Progress bars — triggered when skills section enters view
+    const progressObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.querySelectorAll('.progress-fill').forEach(fill => fill.classList.add('animated'));
+        }
+      });
+    }, { threshold: 0.2 });
+    document.querySelectorAll('.skills-section').forEach(el => progressObserver.observe(el));
+
+    // Stagger delays for children
+    document.querySelectorAll('[data-stagger]').forEach(parent => {
+      parent.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach((child, i) => {
+        (child as HTMLElement).style.transitionDelay = `${i * 0.08}s`;
+      });
+    });
+  </script>
+</body>
+</html>

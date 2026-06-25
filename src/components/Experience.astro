@@ -1,0 +1,136 @@
+---
+const experiences = [
+  {
+    company: 'Banco Inter',
+    role: 'Senior Product Manager',
+    period: 'Nov 2024 · Atual',
+    tag: 'InterPag · Adquirência',
+    color: '#FF6B35',
+    desc: 'Evolução de produtos digitais e jornadas críticas em um dos maiores super apps financeiros do Brasil, atuando em ambiente de alta escala e complexidade regulatória.',
+    highlights: [
+      { stat: '+330%', label: 'Crescimento de receita via turnaround de produto' },
+      { stat: '53k→198k', label: 'Expansão da base de sellers ativos' },
+      { stat: '~20%', label: 'Redução de falhas em fluxos críticos' },
+    ],
+    bullets: [
+      'End-to-end product strategy e roadmap conectando discovery, dados e engenharia',
+      'Reposicionamento de Long Tail (~10k TPV) para Mercado Médio (~R$80k poder crescente)',
+      'Business cases e P&L aprovados por lideranças executivas',
+      'Benchmarking competitivo e identificação de novos modelos de monetização',
+      'Interseção entre produto, tecnologia e dados: APIs, arquitetura funcional, SoftPOS, Tap on Phone',
+    ],
+    stack: ['PIX', 'SoftPOS', 'Tap on Phone', 'Adquirência', 'BaaS', 'PCI MPoC', 'SQL', 'Jira'],
+  },
+  {
+    company: 'Hitss Brasil',
+    role: 'Project Manager',
+    period: 'Jul 2023 · Nov 2024',
+    tag: 'Grupo América Móvil · Enterprise',
+    color: '#0066FF',
+    desc: 'Projetos e evolução de plataformas digitais enterprise para Petrobras, Claro, Ancine e Prio em ambiente multicliente de alta complexidade.',
+    highlights: [],
+    bullets: [
+      'Product discovery, mapeamento de jornadas e análise de dados em plataformas críticas',
+      'Coordenação de times multidisciplinares e stakeholders de negócio e tecnologia',
+      'Experimentos e testes A/B para melhoria de usabilidade e conversão',
+      'Definição de requisitos, priorização de backlog em ambiente ágil (Scrum/Kanban)',
+      'Decisões de produto baseadas em análise quantitativa e pesquisa de mercado',
+    ],
+    stack: ['Scrum', 'Kanban', 'Azure DevOps', 'Confluence', 'A/B Testing', 'Analytics'],
+  },
+  {
+    company: 'Fitbank',
+    role: 'Operations Support Leader',
+    period: 'Jul 2022 · Abr 2023',
+    tag: 'Inflatech Banking · BaaS',
+    color: '#00ff88',
+    desc: 'Evolução de produtos de pagamento em ecossistemas de Banking as a Service (BaaS), PaaS e integrações de infraestrutura financeira.',
+    highlights: [],
+    bullets: [
+      'Gestão de incidentes críticos N2/N3, transformando ocorrências em melhorias de produto',
+      'Monitoramento diário de operações financeiras e mapeamento de riscos',
+      'Levantamento de requisitos para BaaS, PaaS, boletos e transações PIX',
+      'Dashboards em Power BI para tomada de decisão orientada a dados',
+      'Suporte em integrações bancárias, testes de homologação e compliance',
+    ],
+    stack: ['PIX', 'BaaS', 'PaaS', 'CNAB', 'Power BI', 'Celcoin', 'Efi'],
+  },
+];
+---
+<section id="experiencia" class="py-32 relative">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12">
+
+    <!-- Header -->
+    <div class="reveal mb-20">
+      <div class="flex items-center gap-4 mb-6">
+        <span class="text-[#00ff88] text-xs font-mono tracking-[0.4em] uppercase">02 / Experiência</span>
+        <div class="h-px flex-1 max-w-[80px] bg-[#00ff88]/20"></div>
+      </div>
+      <h2 class="text-[clamp(2.5rem,6vw,5rem)] font-black leading-[0.95] tracking-tight text-white">
+        ONDE JÁ<br/>
+        <span class="text-white/20">FUI </span><span class="gradient-text">TESTADO.</span>
+      </h2>
+    </div>
+
+    <!-- Timeline -->
+    <div class="space-y-8" data-stagger>
+      {experiences.map((exp, i) => (
+        <div class="reveal card-hover group relative p-8 lg:p-10 bg-[#0d0d0d] border border-white/5 rounded-2xl hover:border-white/10 transition-all duration-500 overflow-hidden">
+          <!-- Left accent bar -->
+          <div class="absolute left-0 top-0 bottom-0 w-1 rounded-l-2xl" style={`background: ${exp.color}`}></div>
+
+          <!-- Background glow on hover -->
+          <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-2xl" style={`background: radial-gradient(600px circle at 50% 50%, ${exp.color}08, transparent 70%)`}></div>
+
+          <div class="grid lg:grid-cols-[2fr,3fr] gap-10">
+            <!-- Left: Company info -->
+            <div class="space-y-4">
+              <div>
+                <div class="text-[10px] text-white/30 uppercase tracking-widest mb-1">{exp.tag}</div>
+                <h3 class="text-2xl font-black text-white">{exp.company}</h3>
+                <div class="text-base font-medium mt-1" style={`color: ${exp.color}`}>{exp.role}</div>
+                <div class="text-sm text-white/30 mt-1">{exp.period}</div>
+              </div>
+
+              <p class="text-sm text-white/40 leading-relaxed">{exp.desc}</p>
+
+              <!-- Highlights -->
+              {exp.highlights.length > 0 && (
+                <div class="grid grid-cols-1 gap-3 pt-2">
+                  {exp.highlights.map(h => (
+                    <div class="p-3 rounded-xl border" style={`border-color: ${exp.color}30; background: ${exp.color}08`}>
+                      <div class="text-xl font-black" style={`color: ${exp.color}`}>{h.stat}</div>
+                      <div class="text-xs text-white/40 mt-0.5">{h.label}</div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <!-- Right: Bullets + Stack -->
+            <div class="space-y-6">
+              <ul class="space-y-3">
+                {exp.bullets.map(b => (
+                  <li class="flex gap-3 text-sm text-white/50 leading-relaxed">
+                    <span class="mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full" style={`background: ${exp.color}`}></span>
+                    {b}
+                  </li>
+                ))}
+              </ul>
+
+              <!-- Stack tags -->
+              <div class="flex flex-wrap gap-2 pt-2">
+                {exp.stack.map(s => (
+                  <span class="px-2.5 py-1 text-[10px] font-medium tracking-wider uppercase rounded-md bg-white/5 text-white/30 border border-white/5 hover:border-white/10 transition-colors">
+                    {s}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

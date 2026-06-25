@@ -1,0 +1,126 @@
+---
+const projects = [
+  {
+    id: '01',
+    name: 'Manual da Adquirência',
+    tagline: 'O mapa completo do invisível',
+    desc: 'Documentação técnica e autoral que desmonta toda a pilha de adquirência: onboarding, captura, autorização, liquidação, conciliação, antecipação, fee transacional, BIN/IIN, POS/SoftPOS/Tap on Phone, PCI. Uma referência que não existe em lugar nenhum. Criada a partir de vivência real.',
+    tags: ['Pagamentos', 'Adquirência', 'BaaS', 'Conteúdo Técnico'],
+    color: '#00ff88',
+    status: 'Ativo',
+    type: 'Knowledge',
+  },
+  {
+    id: '02',
+    name: 'Unclic',
+    tagline: 'SuperApp para pequenos negócios',
+    desc: 'Plataforma que começou como gestão para barbearias e evoluiu para um ecossistema completo para micro e pequenas empresas. Tese de produto: simplificar o que o mercado complexificou desnecessariamente.',
+    tags: ['Product', 'SuperApp', 'SMB', 'Plataforma'],
+    color: '#0066ff',
+    status: 'Em desenvolvimento',
+    type: 'Venture',
+  },
+  {
+    id: '03',
+    name: 'Stricto',
+    tagline: 'DevTools com inteligência editorial',
+    desc: 'Ferramentas de desenvolvimento com IA aplicada a fluxos editoriais e de produto. Parte da tese de que IA precisa de estrutura e princípios. Não apenas de prompts.',
+    tags: ['DevTools', 'IA', 'Produto', 'B2B'],
+    color: '#ff6b35',
+    status: 'Em construção',
+    type: 'Tech',
+  },
+  {
+    id: '04',
+    name: 'Panthalassa & Co',
+    tagline: 'Venture Studio · Holding de projetos',
+    desc: 'Estrutura guarda-chuva para os projetos e ventures em construção. CNPJ ativo desde abril 2026. Do nome ao latim, tudo tem intenção: Panthalassa foi o oceano primordial que cobria o mundo antes dos continentes se separarem.',
+    tags: ['Venture Studio', 'Holding', 'Estratégia'],
+    color: '#a855f7',
+    status: 'Operacional',
+    type: 'Business',
+  },
+  {
+    id: '05',
+    name: 'Studio Vasttos',
+    tagline: 'Fabricação digital · Impressão 3D',
+    desc: 'Estúdio de fabricação com Bambu Lab A1 e distribuição via Cults3D. Onde a obsessão por objetos físicos com significado encontra manufatura digital de precisão.',
+    tags: ['Impressão 3D', 'Produto Físico', 'Design'],
+    color: '#eab308',
+    status: 'Ativo',
+    type: 'Creative',
+  },
+  {
+    id: '06',
+    name: 'Kairós',
+    tagline: 'Second Brain anti-TDAH',
+    desc: 'Sistema operacional pessoal construído para funcionar com a mente, não contra ela. Kairós (καιρός) é o "tempo certo", diferente de chronos, o tempo quantitativo. Um projeto sobre operar com clareza no caos.',
+    tags: ['Produtividade', 'TDAH', 'Second Brain', 'IA'],
+    color: '#06b6d4',
+    status: 'Prototipado',
+    type: 'Personal',
+  },
+];
+---
+<section id="projetos" class="py-32 relative">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12">
+
+    <!-- Header -->
+    <div class="reveal mb-20">
+      <div class="flex items-center gap-4 mb-6">
+        <span class="text-[#00ff88] text-xs font-mono tracking-[0.4em] uppercase">03 / Projetos</span>
+        <div class="h-px flex-1 max-w-[80px] bg-[#00ff88]/20"></div>
+      </div>
+      <h2 class="text-[clamp(2.5rem,6vw,5rem)] font-black leading-[0.95] tracking-tight text-white">
+        O QUE ESTOU<br/>
+        <span class="text-white/20">CONSTRUINDO</span>
+        <span class="gradient-text"> AGORA.</span>
+      </h2>
+    </div>
+
+    <!-- Projects grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" data-stagger>
+      {projects.map((p, i) => (
+        <div class="reveal card-hover group relative p-7 bg-[#0d0d0d] border border-white/5 rounded-2xl hover:border-white/10 transition-all duration-500 overflow-hidden cursor-default" data-hover>
+          <!-- Hover glow -->
+          <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style={`background: radial-gradient(300px circle at 50% 0%, ${p.color}10, transparent 70%)`}></div>
+
+          <!-- Top row -->
+          <div class="flex items-start justify-between mb-6">
+            <span class="text-[10px] font-mono text-white/20">{p.id}</span>
+            <div class="flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full" style={`background: ${p.color}`}></span>
+              <span class="text-[10px] text-white/30 uppercase tracking-wider">{p.status}</span>
+            </div>
+          </div>
+
+          <!-- Type badge -->
+          <div class="mb-4">
+            <span class="text-[9px] font-bold tracking-[0.3em] uppercase px-2 py-1 rounded-md" style={`color: ${p.color}; background: ${p.color}15; border: 1px solid ${p.color}25`}>
+              {p.type}
+            </span>
+          </div>
+
+          <!-- Name + tagline -->
+          <h3 class="text-xl font-black text-white mb-2 group-hover:text-white transition-colors">{p.name}</h3>
+          <div class="text-xs font-medium mb-4" style={`color: ${p.color}`}>{p.tagline}</div>
+
+          <p class="text-sm text-white/40 leading-relaxed mb-6">{p.desc}</p>
+
+          <!-- Tags -->
+          <div class="flex flex-wrap gap-2">
+            {p.tags.map(t => (
+              <span class="text-[10px] px-2 py-1 rounded-md bg-white/5 text-white/30 border border-white/5">
+                {t}
+              </span>
+            ))}
+          </div>
+
+          <!-- Bottom accent line -->
+          <div class="absolute bottom-0 left-0 right-0 h-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={`background: linear-gradient(90deg, transparent, ${p.color}, transparent)`}></div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
