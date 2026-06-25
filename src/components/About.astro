@@ -37,24 +37,9 @@
           </p>
         </div>
 
-        <!-- Values grid -->
-        <div class="reveal delay-300 grid grid-cols-2 gap-4 pt-4">
-          {[
-            { icon: '◈', label: 'Product Strategy', desc: 'Tese, roadmap, P&L e execução' },
-            { icon: '◎', label: 'Data-Driven', desc: 'SQL, BI e analytics como linguagem' },
-            { icon: '◆', label: 'Payments Depth', desc: 'PIX, Adquirência, BaaS, PCI' },
-            { icon: '◉', label: 'Escala & Impacto', desc: 'Crescimento com rigor de negócio' },
-          ].map(v => (
-            <div class="p-4 bg-[#111] border border-white/5 rounded-xl hover:border-[#00ff88]/20 transition-all duration-300 group">
-              <div class="text-[#00ff88] text-lg mb-2">{v.icon}</div>
-              <div class="text-sm font-semibold text-white/80 mb-1">{v.label}</div>
-              <div class="text-xs text-white/30">{v.desc}</div>
-            </div>
-          ))}
-        </div>
       </div>
 
-      <!-- Right: photo + facts -->
+      <!-- Right: photo + facts + values -->
       <div class="space-y-6">
         <!-- Photo — só aparece se existir -->
         <div class="reveal-right relative" id="about-photo-wrap">
@@ -85,6 +70,22 @@
             <div class="p-3 bg-[#111] border border-white/5 rounded-xl">
               <div class="text-[10px] text-white/30 uppercase tracking-widest mb-1">{f.label}</div>
               <div class="text-sm font-medium text-white/70">{f.value}</div>
+            </div>
+          ))}
+        </div>
+
+        <!-- Values grid -->
+        <div class="reveal-right delay-300 grid grid-cols-2 gap-3">
+          {[
+            { icon: '◈', label: 'Product Strategy', desc: 'Tese, roadmap, P&L e execução' },
+            { icon: '◎', label: 'Data-Driven', desc: 'SQL, BI e analytics como linguagem' },
+            { icon: '◆', label: 'Payments Depth', desc: 'PIX, Adquirência, BaaS, PCI' },
+            { icon: '◉', label: 'Escala & Impacto', desc: 'Crescimento com rigor de negócio' },
+          ].map(v => (
+            <div class="p-4 bg-[#111] border border-white/5 rounded-xl hover:border-[#00ff88]/20 transition-all duration-300">
+              <div class="text-[#00ff88] text-lg mb-2">{v.icon}</div>
+              <div class="text-sm font-semibold text-white/80 mb-1">{v.label}</div>
+              <div class="text-xs text-white/30">{v.desc}</div>
             </div>
           ))}
         </div>
