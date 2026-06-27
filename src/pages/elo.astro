@@ -1,0 +1,150 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const c = {
+  id: '001',
+  client: 'Elo · Incubadora de Inovação',
+  title: 'Quando velocidade não basta: a tese que transforma risco em produto.',
+  tagline: 'O sistema evoluiu em velocidade. Não em confiança.',
+  role: 'Tese Estratégica · Processo Seletivo',
+  year: '2025',
+  status: 'Tese Estratégica',
+  color: '#FF6B35',
+  problem: 'O Brasil tem um dos sistemas de pagamento mais rápidos do mundo, com um dos maiores índices de fraude. R$ 29 bilhões em golpes via Pix em um ano. 3,48% de taxa de chargeback, entre as mais altas do planeta. R$ 3 bilhões em tentativas de fraude no e-commerce anualmente.',
+  insight: 'Transações fraudulentas têm ticket médio maior que as legítimas, distorcendo os sistemas de decisão de risco e penalizando clientes reais.',
+  pillars: [
+    {
+      name: 'Elo Presence',
+      type: 'Core Helper',
+      color: '#FF6B35',
+      desc: 'Prova física no e-commerce via Tap on Phone / NFC. Elimina fraude na origem, não na detecção.',
+    },
+    {
+      name: 'Elo Assurance',
+      type: 'Disruptive Adjacent',
+      color: '#0066ff',
+      desc: 'Transforma o risco do Pix em produto monetizável via modelos de compartilhamento de responsabilidade.',
+    },
+    {
+      name: 'Elo Trust ID',
+      type: 'New Avenue',
+      color: '#00ff88',
+      desc: 'Identidade comportamental que melhora decisões de autorização e reduz falsos positivos.',
+    },
+  ],
+  shift: 'Risco deixa de ser custo para se tornar ativo precificado. Receita por taxa transacional, compartilhamento de liability e licenciamento B2B, sem depender do MDR tradicional.',
+  numbers: [
+    { value: 'R$ 29bi', label: 'Golpes via Pix / ano' },
+    { value: '3.48%', label: 'Taxa de chargeback BR' },
+    { value: 'R$ 3bi', label: 'Fraudes no e-commerce / ano' },
+    { value: '3', label: 'Pilares estratégicos' },
+  ],
+};
+---
+
+<Layout
+  title="Tese Elo · Incubadora de Inovação — Gustavo Henrique"
+  description="Quando velocidade não basta: a tese que transforma risco em produto. Uma proposta estratégica para a Elo sobre fraude, confiança e monetização."
+>
+
+  <!-- Nav back -->
+  <nav class="nav-blur fixed top-0 left-0 right-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 py-5 flex items-center justify-between">
+      <a href="/" class="text-sm font-bold tracking-[0.3em] uppercase text-[#00ff88]">
+        GH<span class="text-white/30">.</span>
+      </a>
+      <a href="/" class="flex items-center gap-2 text-xs text-white/40 hover:text-white transition-colors uppercase tracking-widest">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 3L5 7l4 4"/>
+        </svg>
+        Voltar ao portfólio
+      </a>
+    </div>
+  </nav>
+
+  <!-- Grid background -->
+  <div class="grid-bg"></div>
+
+  <main class="pt-28 pb-32 relative">
+    <div class="max-w-5xl mx-auto px-6 lg:px-12">
+
+      <!-- Header -->
+      <div class="mb-16">
+        <div class="flex items-center gap-3 flex-wrap mb-6">
+          <span class="text-[10px] font-mono text-white/20">{c.id}</span>
+          <span class="tag text-[10px]" style={`color: ${c.color}; border-color: ${c.color}30; background: ${c.color}08`}>
+            {c.status}
+          </span>
+          <span class="text-[10px] text-white/20 uppercase tracking-widest">{c.year}</span>
+        </div>
+        <div class="text-xs text-white/40 font-medium mb-4">{c.client}</div>
+        <h1 class="text-[clamp(2rem,5vw,4rem)] font-black text-white leading-tight mb-4">
+          {c.title}
+        </h1>
+        <p class="text-lg italic" style={`color: ${c.color}90`}>"{c.tagline}"</p>
+        <div class="mt-6 text-xs text-white/20 uppercase tracking-widest">{c.role}</div>
+      </div>
+
+      <!-- Top gradient line -->
+      <div class="h-px w-full mb-16" style={`background: linear-gradient(90deg, ${c.color}, ${c.color}40, transparent)`}></div>
+
+      <!-- Numbers bar -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-16 p-6 rounded-2xl bg-black/30 border border-white/5">
+        {c.numbers.map(n => (
+          <div class="text-center">
+            <div class="text-3xl lg:text-4xl font-black" style={`color: ${c.color}`}>{n.value}</div>
+            <div class="text-[10px] text-white/30 mt-2 uppercase tracking-wider">{n.label}</div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Problem + Insight -->
+      <div class="grid lg:grid-cols-2 gap-10 mb-16">
+        <div class="space-y-4">
+          <div class="text-[10px] font-bold uppercase tracking-[0.3em] text-white/20">O Problema</div>
+          <p class="text-base text-white/50 leading-relaxed">{c.problem}</p>
+        </div>
+        <div class="space-y-4">
+          <div class="text-[10px] font-bold uppercase tracking-[0.3em]" style={`color: ${c.color}80`}>O Insight Central</div>
+          <p class="text-base text-white/70 leading-relaxed font-medium">{c.insight}</p>
+        </div>
+      </div>
+
+      <!-- 3 Pillars -->
+      <div class="mb-16">
+        <div class="text-[10px] font-bold uppercase tracking-[0.3em] text-white/20 mb-6">Estrutura de Abordagem</div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {c.pillars.map((p) => (
+            <div class="relative p-6 rounded-2xl border" style={`border-color: ${p.color}25; background: ${p.color}06`}>
+              <div class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full inline-block mb-4" style={`color: ${p.color}; background: ${p.color}15`}>
+                {p.type}
+              </div>
+              <div class="text-xl font-black text-white mb-2">{p.name}</div>
+              <p class="text-sm text-white/40 leading-relaxed">{p.desc}</p>
+              <div class="absolute bottom-0 left-0 right-0 h-0.5 rounded-b-2xl" style={`background: linear-gradient(90deg, ${p.color}60, transparent)`}></div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Strategic shift -->
+      <div class="p-6 rounded-2xl border-l-2 bg-white/[0.02] mb-16" style={`border-color: ${c.color}`}>
+        <div class="text-[10px] font-bold uppercase tracking-[0.3em] text-white/20 mb-3">A Virada Estratégica</div>
+        <p class="text-base text-white/60 leading-relaxed">{c.shift}</p>
+      </div>
+
+      <!-- Back CTA -->
+      <div class="flex items-center justify-between pt-8 border-t border-white/5">
+        <a href="/" class="flex items-center gap-2 text-xs text-white/40 hover:text-[#00ff88] transition-colors uppercase tracking-widest">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 3L5 7l4 4"/>
+          </svg>
+          Voltar ao portfólio
+        </a>
+        <div class="text-xs text-white/20 font-mono">gustavo.wiki/elo</div>
+      </div>
+
+    </div>
+  </main>
+
+</Layout>
